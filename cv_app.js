@@ -1,3 +1,27 @@
+// Toggle
+const menu = document.querySelector('#mobile-menu');
+const menuLinks = document.querySelector('.navbar__menu');
+const navLogo = document.querySelector('#navbar__logo');
+const navLinks = document.querySelectorAll('.navbar__links');
+
+// Toggle mobile menu
+const mobileMenu = () => {
+  menu.classList.toggle('is-active');
+  menuLinks.classList.toggle('active');
+};
+menu.addEventListener('click', mobileMenu);
+
+// Hide mobile menu on link click (redirects back to homepage)
+const hideMobileMenu = () => {
+  if (window.innerWidth <= 900 && menu.classList.contains('is-active')) {
+    menu.classList.remove('is-active');
+    menuLinks.classList.remove('active');
+  }
+};
+navLinks.forEach(link => link.addEventListener('click', hideMobileMenu));
+navLogo.addEventListener('click', hideMobileMenu);
+
+// Pacman
 window.addEventListener("load", () => {
   const canvas = document.getElementById("pacman-ghost-canvas");
   const ctx = canvas.getContext("2d");
@@ -167,3 +191,4 @@ ctx.fill();
     resizeCanvas();
   });
 });
+
