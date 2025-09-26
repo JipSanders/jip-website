@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio - Jip Sanders</title>
+    <link rel="stylesheet" href="style.css">
+    <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" 
+    />
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" 
+        rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="navbar__container">
+        <a href="#home" id="navbar__logo">
+            <img src="images/logo.png" alt="Logo" width="90" height="90">
+        </a>
+
+        <div class="navbar__toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <ul class="navbar__menu">
+            <li class="navbar__item"><a href="#home" class="navbar__links">Home</a></li>
+            <li class="navbar__item"><a href="#journey" class="navbar__links">Journey</a></li>
+            <li class="navbar__item"><a href="#projects" class="navbar__links">Projects</a></li>
+            <li class="navbar__item"><a href="#about" class="navbar__links">Connect</a></li>
+            <li class="navbar__btn"><a href="/cv.html" class="button">CV</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Home Section -->
+<section id="home" class="main">
+        <div class="main__container">
+            <div class="main__content">
+            <h1 class="main__heading">Jip is <span>...</span></h1>
+            <h2 class="main__subheading">
+                <span id="dynamic-text"></span><span class="cursor">|</span>
+            </h2>
+            <p class="main__description">
+                Jip Sanders is a globally minded adventurer and data-driven innovator. 
+                Having lived across South Africa, Thailand, Australia, and currently, the Netherlands, he thrives on new challenges and perspectives. 
+                Whether he’s working to enhance adidas’ marketplace performance, pushing his limits in Muay Thai and calisthenics, 
+                or diving into fantasy worlds, Jip combines curiosity, discipline, and creativity. 
+                He’s as comfortable wrestling with spreadsheets as he is chasing bold experiences - always exploring, always learning
+            </p>
+            <div class="main__icons">
+                <a
+                    class="main__icon--link" 
+                    target="_blank" 
+                    aria-label="Astronaut">
+                    <i class="fa-solid fa-user-astronaut"></i>
+                </a>
+                <a
+                    class="main__icon--link" 
+                    target="_blank" 
+                    aria-label="Paw">
+                    <i class="fa-solid fa-seedling"></i>
+                </a>
+                <a
+                    class="main__icon--link" 
+                    target="_blank" 
+                    aria-label="Fire">
+                    <i class="fa-solid fa-pen"></i>
+                </a>
+                <a
+                    class="main__icon--link" 
+                    target="_blank" 
+                    aria-label="Code">
+                    <i class="fa-solid fa-code"></i>
+                </a>                
+            </div>
+        </div>
+        <div class="main__img--container">
+            <div class="spiral_1"></div>
+            <img src="images/jump.jpg" alt="Main Image" class="main__img">
+            <img src="images/Jip - photo.png" alt="Main Image 2" class="main__img">
+            <img src="images/Image - bike.jpg" alt="Main Image 3" class="main__img">
+        </div>
+    </div>
+</section>
+
+<!-- Journey Section -->
+<section id="journey" class="journey">
+  <h1 class="journey__heading">The <span> Journey </span></h1>
+  <h2 class="journey__subheading">Learning by doing, learning from my peers, and learning from the books.</h2>
+
+  <div class="timeline">
+
+    <!-- Job -->
+    <div class="container job">
+      <div class="desc">
+        <h3><em>adidas</em></h3>
+        <h4>Marketplace Management | Product Launch & Optimisation</h4>
+        <p><em>Sep 2024 – Present</em></p>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="container education">
+      <div class="desc">
+        <h3><em>London School of Economics</em></h3>
+        <h4>Data Analytics - accelerator</h4>
+        <p><em>Sep 2024 – Jun 2025</em></p>
+      </div>
+    </div>
+
+    <!-- Job -->
+    <div class="container job">
+      <div class="desc">
+        <h3><em>adidas</em></h3>
+        <h4>Internship: Product Launch & Optimisation</h4>
+        <p><em>Mar 2024 – Sep 2024</em></p>
+      </div>
+    </div>
+
+    <div class="container job">
+      <div class="desc">
+        <h3><em>Rip Curl</em></h3>
+        <h4>Internship: Digital Marketing</h4>
+        <p><em>Feb 2023 – Jul 2023</em></p>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="container education">
+      <div class="desc">
+        <h3><em>Hanze UAS</em></h3>
+        <h4>Bachelor's International Business</h4>
+        <p><em>2020 – 2024</em></p>
+      </div>
+    </div>
+
+    <div class="container job">
+      <div class="desc">
+        <h3><em>Dayrize.io</em></h3>
+        <h4>Integrations Specialist</h4>
+        <p>2021 – 2022</p>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+
+<!-- Project Section -->
+<section id="projects" class="projects">
+    <h1>My Projects:</h1>
+        <div class="projects__wrapper">
+            <div class="projects__card">
+                <h2 class="projects__title">Turtle Games:</h2>
+                <p class="projects__description">Analytics for Organisational Impact.</p>
+                <div class="projects__btn">
+                    <a href="https://github.com/JipSanders/LSE_Data_Analytics_2025/tree/32950636e3cf122081c56daa0c1f5d63668a8784/Advanced_Analytics_for_OrgImpact"
+                    target="_blank" rel="noopener noreferrer"
+                    class="button">
+                        View Project
+                    </a>
+                </div>
+            </div>
+
+            <div class="projects__card">
+                <h2 class="projects__title">GAEA AI:</h2>
+                <p class="projects__description">Time-series Forecasting of Sales.</p>
+                <div class="projects__btn">
+                    <a href="https://github.com/JipSanders/LSE_Data_Analytics_2025/tree/32950636e3cf122081c56daa0c1f5d63668a8784/EmployerProject"
+                    target="_blank" rel="noopener noreferrer"
+                    class="button">
+                        View Project
+                    </a>
+                </div>
+            </div>
+            <div class="projects__card">
+                <h2 class="projects__title">Jip's World:</h2>
+                <p class="projects__description">Exactly what you are looking at!</p>
+                <div class="projects__btn">
+                    <a href="https://github.com/JipSanders/LSE_Data_Analytics_2025/tree/32950636e3cf122081c56daa0c1f5d63668a8784/EmployerProject"
+                    target="_blank" rel="noopener noreferrer"
+                    class="button">
+                        View Project
+                    </a>
+                </div>
+            </div>
+            <div class="projects__card">
+                <h2 class="projects__title">Stay Tuned:</h2>
+                <p class="projects__description">The only way is up!</p>
+                <div class="projects__btn">
+                    <a href="#projects"
+                    target="_blank" rel="noopener noreferrer"
+                    class="button">
+                        Coming Soon
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- About Section -->
+<section id="about" class="about">
+    <div class="about__container">
+        <div class="about__img--container">
+            <img src="images/Wetsuit.jpg" alt="Wetsuit" class="about__img--card">
+        </div>
+        <div class="about__content">
+            <h1>Are you keen to connect?</h1>
+            <p>I'm always open to discussing new projects, creative ideas, or
+            opportunities to contribute to exciting initiatives. Whether you have a
+            specific challenge, a potential collaboration, or simply want to
+            exchange insights and experiences, I’d love to hear from you. Feel free
+            to reach out via email, or LinkedIn,
+            and let’s start a conversation!
+            </p>
+        <div class="about__actions">
+            <div class="about__icons">
+            <a
+                href="https://www.linkedin.com/in/jip-sanders-b55b8321b/"
+                class="about__icons--link"
+                target="_blank"
+                aria-label="Linkedin"
+            >
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            </div>
+            <button class="about__btn">
+            <a href="mailto:jipsanders10@gmail.com">Send a mail!</a>
+            </button>
+        </div>
+        </div>
+    </div>
+</section>
+
+<!-- End -->
+    <section id="sign-up" class="end">
+        <div class="end__container">
+            <div class="end__content">
+                <h2 class="end__subheading">See what makes me different.</h2>
+                <p class="end__description">Explore my projects and get in touch!</p>
+            </div>
+
+            <!-- Dynamic Quote/Image Carousel -->
+            <div class="end__carousel">
+                <div class="carousel__slide active" style="background-image: url('images/madre.jpg');">
+                    <p class="carousel__quote">"The soul becomes dyed with the color of its thoughts."</p>
+                </div>
+                <div class="carousel__slide" style="background-image: url('images/Image - aus.jpg');">
+                    <p class="carousel__quote">"Success is not final, failure is not fatal: it is the courage to continue that counts."</p>
+                </div>
+                <div class="carousel__slide" style="background-image: url('images/rock.jpg');">
+                    <p class="carousel__quote">"It is not what happens to you, but how you react to it that matters.</p>
+                </div>
+                    <button class="carousel__btn carousel__btn--prev">&#10094;</button>
+                    <button class="carousel__btn carousel__btn--next">&#10095;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+        <div class="footer__container">
+            <div class="social__media">
+                <div class="social__media--wrap">
+                    <div class="footer__logo">
+                        <a href="/" id="footer__logo">
+                            <i class="fas fa-globe"></i> Jip's World
+                        </a>
+                    </div>
+                    <p class="website__rights">Jip Sanders © 2025</p>
+                    <div class="social__icons">
+                    <a href="mailto:jipsanders10@gmail.com" 
+                        class="social__icon--link" 
+                        target="_blank" 
+                        aria-label="Mail">
+                        <i class="fa-solid fa-envelope fa-beat"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/jip-sanders-b55b8321b/" 
+                        class="social__icon--link" 
+                        target="_blank" 
+                        aria-label="Linkedin">
+                        <i class="fa-brands fa-linkedin fa-beat"></i>
+                    </a>
+                    <a href="https://github.com/JipSanders" 
+                        class="social__icon--link" 
+                        target="_blank" 
+                        aria-label="Github">
+                        <i class="fa-brands fa-github fa-beat"></i>
+                    </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <script src="app.js"></script>
+    </body>
+    </html>
