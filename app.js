@@ -81,7 +81,7 @@ function resetInterval() {
 }
 
 // Dynamic Text
-const words = ["an Adventurer", "a Risk-taker", "an Innovator", "a Competitor"," Active", "Fearless", "Stoic"];
+const words = ["Adventurous", "a Risk-taker", "Innovative", "Competitive"," Active", "Fearless", "Stoic"];
 let wordIndex = 0;
 let letterIndex = 0;
 const textEl = document.getElementById("dynamic-text");
@@ -112,5 +112,6 @@ function deleteWord() {
 
 // start the loop
 typeWord();
+
 
 
