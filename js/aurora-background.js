@@ -298,8 +298,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Create single full-page aurora
   const aurora = new AuroraBackground(body, {
     colorStops: ['#FF6B6B', '#141414', '#4ECDC4'], // Warm, soothing colors
-    blend: 0.5, // More subtle
-    amplitude: 0.8, // Gentler waves
+    blend: 0.55, // More subtle
+    amplitude: 2.7, // Gentler waves
     speed: 0.4 // Slower, calmer
   });
   
