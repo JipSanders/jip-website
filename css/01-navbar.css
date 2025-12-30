@@ -84,6 +84,32 @@
   padding: 10px 22px;
   height: 100%;
   width: 100%;
+  position: relative;
+  overflow: hidden;
+  z-index: 1; /* Ensure proper stacking */
+}
+
+/* Navbar button hover effect */
+.navbar__btn .button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: var(--color-accent);
+  transition: width var(--transition-normal);
+  z-index: -1;
+}
+
+.navbar__btn .button:hover::before {
+  width: 100%;
+}
+
+.navbar__btn .button:hover {
+  color: var(--color-text-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(30, 144, 255, 0.3);
 }
 
 /* Mobile Menu Toggle */
