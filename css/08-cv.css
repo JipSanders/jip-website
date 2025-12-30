@@ -1,0 +1,308 @@
+/* ============================================
+   CV PAGE
+   CV-specific styles and components
+   ============================================ */
+
+.cv {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  background: transparent;
+  color: var(--color-text-primary);
+  padding: var(--space-lg) var(--space-md);
+}
+
+.cv__container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.cv__container h1 {
+  font-size: var(--font-size-4xl);
+  margin-bottom: var(--space-md);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.cv__container h2 {
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--space-md);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.cv__container h1,
+.cv__container h2 {
+  background-size: 200% 100%;
+  animation: gradientShift 6s linear infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0 0; }
+  50% { background-position: 100% 0; }
+  100% { background-position: 0 0; }
+}
+
+.cv__container h2:hover {
+  transform: scale(1.075);
+  transition: transform var(--transition-fast);
+}
+
+.cv__intro {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-light);
+  margin-bottom: var(--space-md);
+  line-height: 1.5;
+  color: var(--color-text-primary);
+}
+
+.cv__intro span {
+  background: var(--gradient-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  font-style: italic;
+  font-weight: var(--font-weight-bold);
+  color: transparent;
+}
+
+.cv__intro:hover {
+  transform: translateY(-3px) scale(1.02);
+  color: var(--color-primary-light);
+  text-shadow: 0 0 3px rgba(255, 140, 0, 0.7);
+  transition: all var(--transition-fast);
+}
+
+/* Skill Grid */
+.cv__skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-md);
+  width: 100%;
+}
+
+.skill-card {
+  background: var(--color-bg-card);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+}
+
+/* Hover effect now handled by GSAP for smoother animation */
+
+.skill-card i {
+  font-size: var(--font-size-xl);
+  color: var(--color-primary-dark);
+  margin-bottom: 0.8rem;
+}
+
+.skill-card h3 {
+  font-size: var(--font-size-base);
+  margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
+}
+
+.skill-card p {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+}
+
+/* Ripple Ribbon */
+.cv__ribbon {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  margin: 3rem 0;
+  background: linear-gradient(90deg, var(--color-primary-dark), var(--color-bg-dark), var(--color-primary-dark));
+  background-size: 200% 100%;
+  border-radius: 50px;
+  animation: slide 5s linear infinite, ripple 5s ease-in-out infinite;
+  z-index: 1;
+  opacity: 0.6;
+}
+
+@keyframes slide {
+  0% { background-position: 0 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes ripple {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-4px); }
+  50% { transform: translateY(2px); }
+  75% { transform: translateY(-2px); }
+}
+
+.cv__ribbon::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 100%;
+  height: 16px;
+  background: inherit;
+  filter: blur(6px);
+  opacity: 0.3;
+  border-radius: 50px;
+  z-index: -1;
+}
+
+/* PDF Viewer */
+.cv__frame--wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 3rem auto 0;
+}
+
+.cv__frame {
+  width: 100%;
+  height: 80vh;
+  border: none;
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+/* Request Overlay */
+.cv__request-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cv__blurred {
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+.cv__overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cv__request-btn {
+  padding: 16px 32px;
+  font-size: var(--font-size-base);
+  background: var(--color-primary);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: var(--font-weight-bold);
+  transition: all var(--transition-fast);
+}
+
+.cv__request-btn:hover {
+  background: var(--color-accent);
+  transform: scale(1.05);
+}
+
+/* Pac-Man Canvas Section */
+.pacman-ghost-section {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--space-lg);
+  overflow: hidden;
+}
+
+#pacman-ghost-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: transparent;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .cv__container h1 {
+    font-size: var(--font-size-3xl);
+  }
+
+  .cv__container {
+    width: 95%;
+    padding: 0 10px;
+  }
+
+  .cv__intro {
+    font-size: var(--font-size-base);
+  }
+
+  .cv__frame {
+    height: 60vh;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cv__container h1 {
+    font-size: var(--font-size-xl);
+  }
+
+  .cv__intro {
+    font-size: var(--font-size-sm);
+  }
+
+  .cv__frame {
+    height: 50vh;
+  }
+
+  .cv__overlay {
+    width: 90%;
+    padding: 0 10px;
+  }
+
+  .cv__request-btn {
+    width: 100%;
+    font-size: var(--font-size-sm);
+    padding: 12px 16px;
+  }
+
+  .skill-card {
+    padding: var(--space-sm);
+  }
+
+  .skill-card h3 {
+    font-size: var(--font-size-sm);
+  }
+
+  .skill-card p {
+    font-size: var(--font-size-xs);
+  }
+
+  .pacman-ghost-section {
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .cv__container h1 {
+    font-size: clamp(1.5rem, 8vw, 2rem);
+  }
+}

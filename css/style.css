@@ -1,0 +1,48 @@
+/* ============================================
+   MAIN STYLESHEET
+   Imports all modular CSS files
+   ============================================ */
+
+/* Import order matters! Base styles first, then components */
+
+@import url('00-base.css');      /* Variables, reset, utilities */
+@import url('01-navbar.css');    /* Navigation */
+@import url('02-hero.css');      /* Hero/Main section */
+@import url('03-journey.css');   /* Timeline section */
+@import url('04-projects.css');  /* Projects grid */
+@import url('05-about.css');     /* About/Connect section */
+@import url('06-end.css');       /* End section with carousel */
+@import url('07-footer.css');    /* Footer */
+@import url('08-cv.css');        /* CV page specific */
+
+/* ============================================
+   PROJECT METADATA
+   ============================================
+   
+   File Structure:
+   ├── 00-base.css      - Design tokens, reset, utilities
+   ├── 01-navbar.css    - Navigation bar
+   ├── 02-hero.css      - Hero section
+   ├── 03-journey.css   - Timeline
+   ├── 04-projects.css  - Projects grid
+   ├── 05-about.css     - About section
+   ├── 06-end.css       - End section + carousel
+   ├── 07-footer.css    - Footer
+   ├── 08-cv.css        - CV page
+   └── style.css        - This file (imports all)
+   
+   Benefits of this structure:
+   - Easy to find and edit specific sections
+   - Better version control (smaller diffs)
+   - Faster debugging (isolated components)
+   - Easier to maintain and scale
+   - Ready for GSAP animations (clear selectors)
+   
+   CSS Variables (from 00-base.css):
+   - Color system with primary/accent/background tokens
+   - Spacing scale (xs, sm, md, lg, xl, xxl)
+   - Typography scale (font sizes + weights)
+   - Consistent transitions and shadows
+   - Responsive breakpoints in media queries
+   
+   ============================================ */

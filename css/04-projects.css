@@ -1,0 +1,165 @@
+/* ============================================
+   PROJECTS SECTION
+   Project cards grid
+   ============================================ */
+
+.projects {
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-xxl) 0;
+}
+
+.projects h1 {
+  background: var(--gradient-primary);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  font-size: var(--font-size-3xl);
+  margin-bottom: 5rem;
+}
+
+.projects__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+
+.projects__card {
+  margin: 10px;
+  height: 350px;
+  width: 300px;
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--color-text-primary);
+  transition: transform var(--transition-fast);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.projects__card:nth-child(1) {
+  background-image: url('../images/Turtle Games.png');
+}
+
+.projects__card:nth-child(2) {
+  background-image: url('../images/GAEA AI.png');
+}
+
+.projects__card:nth-child(3) {
+  background-image: url('../images/logo.png');
+}
+
+.projects__card:nth-child(4) {
+  background-image: url('../images/Rocket.png');
+}
+
+.projects__card:hover {
+  transform: scale(1.075);
+  cursor: pointer;
+}
+
+.projects__card h2 {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.projects__card p {
+  text-align: center;
+  margin-top: 16px;
+  font-size: var(--font-size-sm);
+}
+
+.projects__btn {
+  display: flex;
+  justify-content: center;
+  padding: 0 var(--space-sm);
+  width: 100%;
+}
+
+.projects__btn a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+  position: relative;
+  z-index: 2;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  padding: 8px 16px;
+  max-width: 180px;
+  border-radius: var(--border-radius);
+  background: var(--color-primary);
+}
+
+.projects__btn a::after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: var(--color-accent);
+  border-radius: var(--border-radius);
+  transition: all var(--transition-normal);
+  z-index: -1;
+}
+
+.projects__btn a:hover::after {
+  width: 100%;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1300px) {
+  .projects__wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .projects h1 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: 3rem;
+  }
+
+  .projects__wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .projects__card {
+    height: 300px;
+    width: 90%;
+  }
+
+  .projects__card h2 {
+    font-size: 1.3rem;
+  }
+
+  .projects__card p {
+    font-size: 0.9rem;
+  }
+
+  .projects__btn a {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+    max-width: 150px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .projects__card {
+    width: 90%;
+    height: auto;
+  }
+}

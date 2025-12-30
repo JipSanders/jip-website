@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Jip Sanders</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/logo.png">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Font Awesome -->
+    <link 
+        rel="stylesheet" 
+        href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" 
+        crossorigin="anonymous">
+
+    <!-- Google Fonts -->
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" 
+        rel="stylesheet">
+    
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+    <!-- ==========================================
+         NAVIGATION
+         ========================================== -->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <!-- Logo -->
+            <a href="index.html#home" id="navbar__logo">
+                <img src="images/logo.png" alt="Jip Sanders Logo" width="90" height="90">
+            </a>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <!-- Navigation Menu -->
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="/index.html#home" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="/index.html#journey" class="navbar__links">Journey</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="/index.html#projects" class="navbar__links">Projects</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="/index.html#about" class="navbar__links">Connect</a>
+                </li>
+                <li class="navbar__btn">
+                    <a href="/cv.html" class="button">CV</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ==========================================
+         CV SECTION
+         ========================================== -->
+    <main class="cv">
+        <div class="cv__container">
+            <h1>Curriculum Vitae</h1>
+            
+            <p class="cv__intro">
+                A window into my world: a mix of 
+                <span>analytical precision</span>, 
+                <span>creative spark</span>, and 
+                <span>relentless discipline</span>.<br>
+                From <span>solving complex problems</span> to 
+                <span>crafting innovative solutions</span>, 
+                here's how I make things happen.
+            </p>
+
+            <!-- Decorative Ribbon -->
+            <div class="cv__ribbon"></div>
+
+            <h2>Strengths</h2>
+            
+            <!-- Skills Grid -->
+            <div class="cv__skills-grid">
+                <div class="skill-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Growth Mindset</h3>
+                    <p>Continuously learning and adapting.</p>
+                </div>
+                
+                <div class="skill-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Data & Analytics</h3>
+                    <p>Developing projects in <em>data automation</em> and <em>product management</em> to solve real problems.</p>
+                </div>
+                
+                <div class="skill-card">
+                    <i class="fas fa-dumbbell"></i>
+                    <h3>Discipline & Resilience</h3>
+                    <p>Both physically and mentally, this is one of my key traits.</p>
+                </div>
+                
+                <div class="skill-card">
+                    <i class="fas fa-book"></i>
+                    <h3>Creativity & Curiosity</h3>
+                    <p>Always looking for alternative and better approaches to an existing process.</p>
+                </div>
+                
+                <div class="skill-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Global Outlook</h3>
+                    <p>Adventurous and culturally aware, eager to explore new experiences and environments.</p>
+                </div>
+                
+                <div class="skill-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Leadership</h3>
+                    <p>Capable of driving projects forward while strengthening teams and knowledge sharing.</p>
+                </div>
+                
+                <div class="skill-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Problem Solving</h3>
+                    <p>Finding creative and efficient solutions to complex challenges in fast-paced environments.</p>
+                </div>
+                
+                <div class="skill-card">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Technical Adaptability</h3>
+                    <p>Quickly learning new tools, frameworks, and technologies to stay ahead in digital landscapes.</p>
+                </div>
+            </div>
+
+            <!-- Decorative Ribbon -->
+            <div class="cv__ribbon"></div>
+        </div>
+
+        <!-- PDF Viewer with Request Overlay -->
+        <div class="cv__frame--wrapper cv__request-wrapper">
+            <iframe 
+                src="Jip CV - Website.pdf#zoom=120"
+                class="cv__frame cv__blurred"
+                title="CV of Jip Sanders"
+                aria-label="PDF viewer for Jip Sanders CV">
+            </iframe>
+
+            <!-- Overlay -->
+            <div class="cv__overlay">
+                <a href="/cdn-cgi/l/email-protection#d6bcbfa6a5b7b8b2b3a4a5e7e696b1bbb7bfbaf8b5b9bbe9a5a3b4bcb3b5a2eb84b3a7a3b3a5a2f3e4e6b0b9a4f3e4e69580f0b4b9b2afeb9ebff3e4e69cbfa6faf3e697f3e6979ff3e4e6b7bbf3e4e6bfb8a2b3a4b3a5a2b3b2f3e4e6bfb8f3e4e6a0bfb3a1bfb8b1f3e4e6afb9a3a4f3e4e69580f8f3e4e686bab3b7a5b3f3e4e6a5b3b8b2f3e4e6bbb3f3e4e6b7b5b5b3a5a5f8f3e697f3e69782beb7b8bda5f7" class="button cv__request-btn">
+                    Request Access
+                </a>
+            </div>
+        </div>
+
+        <!-- Pac-Man Easter Egg Section -->
+        <section class="pacman-ghost-section">
+            <canvas id="pacman-ghost-canvas"></canvas>
+        </section>
+    </main>
+
+    <!-- ==========================================
+         FOOTER
+         ========================================== -->
+    <footer class="footer__container">
+        <p class="website__rights">Jip Sanders © 2025</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/cv_app.js"></script>
+    <script src="js/aurora-background.js"></script>
+    <script src="js/gsap-animations.js"></script>
+</body>
+</html>

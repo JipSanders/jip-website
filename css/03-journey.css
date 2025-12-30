@@ -1,0 +1,253 @@
+/* Journey Section */
+.journey {
+  background: transparent; /* Let aurora show through */
+  color: #fff;
+  padding: 6rem 2rem;
+  text-align: center;
+  position: relative;
+}
+
+/* Removed hover transform - now handled by GSAP */
+
+.journey__heading {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  color: orangered;
+  background: -webkit-linear-gradient(
+        to right, 
+        orangered, 
+        orange 100%
+    );
+    background: linear-gradient(
+        to right, 
+        orangered, 
+        orange 100%
+    );
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+.journey__subheading {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 4rem;
+  color: #fff;
+}
+
+/* Timeline base */
+.timeline {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 0;
+}
+
+/* Two intertwining bars */
+.timeline::before,
+.timeline::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  border-radius: 10px;
+  z-index: 0;
+}
+
+.timeline::before {
+  left: 48.5%; /* closer to center */
+  background: linear-gradient(to bottom, #1e90ff, #00bfff);
+  animation: wave1 6s infinite ease-in-out;
+}
+
+.timeline::after {
+  left: 51.5%; /* slightly to the right */
+  background: linear-gradient(to bottom, orangered, orange);
+  animation: wave2 6s infinite ease-in-out;
+}
+
+/* Subtle weave animation */
+@keyframes wave1 {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-4px); }
+}
+
+@keyframes wave2 {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+
+/* Timeline items */
+.timeline .container {
+  position: relative;
+  width: 50%;
+  padding: 2rem;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.timeline .container.education { 
+  left: 0; 
+  text-align: right; 
+}
+
+.timeline .container.job { 
+  left: 50%; 
+  text-align: left; 
+}
+
+/* Content card */
+.timeline .container .desc {
+  position: relative;
+  display: inline-block;
+  background: #1f1f1f;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  max-width: 80%;
+  cursor: pointer;
+}
+
+/* Hover effect now handled by GSAP for smoother animation */
+
+.timeline .container.job h3 {
+    color: #1e90ff;
+    font-size: 1.8rem;
+}
+
+.timeline .container.education h3 {
+    color: orangered;
+    font-size: 1.8rem;
+}
+
+.timeline .container.education .desc {
+  border-right: 4px solid orangered;
+}
+
+.timeline .container.job .desc {
+  border-left: 4px solid #1e90ff;
+}
+
+/* Circle markers aligned to card middle */
+.timeline .container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); /* centers vertically */
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(20, 20, 20, 0.9); /* Semi-transparent to let aurora glow through */
+  border: 4px solid currentColor;
+  z-index: 2;
+}
+
+
+.timeline .container.education::before {
+  right: -32px; /* sits between bar and card */
+  color: orangered;
+}
+
+.timeline .container.job::before {
+  left: -32px;
+  color: #1e90ff;
+}
+
+/* Responsive fix */
+@media screen and (max-width: 768px) {
+  .timeline::before,
+  .timeline::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .timeline .container {
+    width: 100%;
+    left: 0 !important;
+    text-align: left;
+    padding-left: 3rem;
+  }
+
+  .timeline .container .desc {
+    max-width: 100%;
+  }
+
+  .timeline .container::before {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .journey {
+    padding: 3rem 1rem;
+  }
+
+  .journey__heading {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .journey__subheading {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .timeline {
+    max-width: 90%;
+    padding: 2rem 0;
+  }
+
+  .timeline::before,
+  .timeline::after {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+  }
+
+  .timeline .container {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    text-align: left !important;
+  }
+
+  .timeline .container.education,
+  .timeline .container.job {
+    left: 0 !important;
+  }
+
+  .timeline .container .desc {
+    max-width: 90%;
+    padding: 1rem;
+  }
+
+  .timeline .container.job h3,
+  .timeline .container.education h3 {
+    font-size: 1.2rem;
+  }
+
+  .timeline .container.education .desc {
+    border-right: 3px solid orangered;
+  }
+
+  .timeline .container.job .desc {
+    border-left: 3px solid #1e90ff;
+  }
+
+  .timeline .container::before {
+    width: 16px;
+    height: 16px;
+    border-width: 3px;
+  }
+
+  .timeline .container.education::before {
+    right: -24px;
+  }
+
+  .timeline .container.job::before {
+    left: -24px;
+  }
+}
