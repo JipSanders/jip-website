@@ -179,6 +179,50 @@ const initDynamicText = () => {
 };
 
 // ==========================================
+// CUSTOM CURSOR — SPOTLIGHT + PRECISION DOT
+// Spotlight tracks via CSS custom properties
+// (no DOM-position lerp needed — GPU handles it).
+// ==========================================
+const initCustomCursor = () => {
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+
+  const dot  = document.createElement('div');
+  dot.className = 'cursor-dot cursor-hidden';
+
+  const spot = document.createElement('div');
+  spot.className = 'cursor-spot cursor-hidden';
+
+  document.body.appendChild(spot);
+  document.body.appendChild(dot);
+
+  const root = document.documentElement;
+
+  document.addEventListener('mousemove', (e) => {
+    dot.style.left = e.clientX + 'px';
+    dot.style.top  = e.clientY + 'px';
+    root.style.setProperty('--cx', e.clientX + 'px');
+    root.style.setProperty('--cy', e.clientY + 'px');
+    dot.classList.remove('cursor-hidden');
+    spot.classList.remove('cursor-hidden');
+  });
+
+  document.addEventListener('mouseleave', () => {
+    dot.classList.add('cursor-hidden');
+    spot.classList.add('cursor-hidden');
+  });
+  document.addEventListener('mouseenter', () => {
+    dot.classList.remove('cursor-hidden');
+    spot.classList.remove('cursor-hidden');
+  });
+
+  const interactors = 'a, button, .projects__card, .timeline .container .desc, .main__img, .skill-card, .about__img--card, .carousel__btn--prev, .carousel__btn--next';
+  document.querySelectorAll(interactors).forEach(el => {
+    el.addEventListener('mouseenter', () => dot.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => dot.classList.remove('cursor-hover'));
+  });
+};
+
+// ==========================================
 // INITIALIZE ALL FUNCTIONS
 // ==========================================
 const init = () => {
@@ -186,6 +230,7 @@ const init = () => {
   initScrollHighlight();
   initCarousel();
   initDynamicText();
+  initCustomCursor();
 };
 
 // Run on DOM content loaded

@@ -23,11 +23,6 @@
   padding: 0 var(--space-md);
 }
 
-.about__container:hover {
-  transform: scale(1.075);
-  transition: transform var(--transition-fast);
-  cursor: pointer;
-}
 
 .about__content {
   color: var(--color-text-primary);
@@ -125,8 +120,13 @@
   margin: 0 auto;
 }
 
+.about__img--card {
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
 .about__img--card:hover {
-  transform: scale(1.05);
+  transform: scale(1.04);
+  box-shadow: 0 12px 40px rgba(255, 69, 0, 0.35);
   cursor: pointer;
 }
 

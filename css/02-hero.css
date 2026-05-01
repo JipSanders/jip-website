@@ -30,13 +30,14 @@
 }
 
 .main__heading span {
-  background: var(--gradient-primary);
-  background-size: 100%;
+  background: linear-gradient(to right, orangered, orange, coral, #ff8c42, orangered);
+  background-size: 200% auto;
   -webkit-background-clip: text;
   -moz-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
+  animation: gradient-shimmer 3.5s linear infinite;
 }
 
 .main__subheading {

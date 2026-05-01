@@ -321,12 +321,52 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
   // INITIALIZE JOURNEY ANIMATIONS
   // ==========================================
-  
+
   if (document.querySelector('.journey')) {
     initJourneyAnimations();
     initTimelineHoverEffects();
-    
+
     console.log('✨ Journey GSAP animations initialized');
+  }
+
+  // ==========================================
+  // PROJECTS SECTION ANIMATIONS
+  // ==========================================
+
+  const initProjectsAnimations = () => {
+    // Heading slides in
+    gsap.from('.projects h1', {
+      opacity: 0,
+      y: 50,
+      duration: 0.8,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.projects',
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      }
+    });
+
+    // Cards stagger in from below
+    gsap.from('.projects__card', {
+      opacity: 0,
+      y: 70,
+      scale: 0.92,
+      stagger: 0.12,
+      duration: 0.7,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.projects__wrapper',
+        start: 'top 82%',
+        toggleActions: 'play none none none'
+      }
+    });
+  };
+
+  if (document.querySelector('.projects')) {
+    initProjectsAnimations();
+
+    console.log('✨ Projects GSAP animations initialized');
   }
   
   // ==========================================

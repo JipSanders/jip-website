@@ -51,9 +51,9 @@ const initPacManAnimation = () => {
     canvas.width = section.offsetWidth;
     canvas.height = section.offsetHeight;
 
-    // Calculate base size with both dimensions, but cap at arcade game size (50px max)
-    const calculatedSize = Math.min(canvas.width / 15, canvas.height * 0.25);
-    const baseSize = Math.min(calculatedSize, 20); // Cap at 50px (classic arcade size)
+    // Calculate base size — cap small for a clean, unobtrusive look
+    const calculatedSize = Math.min(canvas.width / 20, canvas.height * 0.18);
+    const baseSize = Math.min(calculatedSize, 14);
 
     // Update sizes based on baseSize (maintains aspect ratio)
     pac.radius = baseSize;
@@ -61,12 +61,12 @@ const initPacManAnimation = () => {
 
     ghosts[0].radius = baseSize * 0.9;
     ghosts[0].y = canvas.height / 2;
-    
+
     ghosts[1].radius = baseSize * 0.9;
-    ghosts[1].y = canvas.height / 2 + canvas.height * 0.15;
-    
+    ghosts[1].y = canvas.height / 2;
+
     ghosts[2].radius = baseSize * 0.9;
-    ghosts[2].y = canvas.height / 2 - canvas.height * 0.15;
+    ghosts[2].y = canvas.height / 2;
 
     powerCube.size = baseSize * 0.5;
     powerCube.y = canvas.height / 2;
@@ -83,7 +83,7 @@ const initPacManAnimation = () => {
 
   let ghosts = [
     {
-      x: 0.4 * canvas.width,
+      x: 0.55 * canvas.width,
       y: canvas.height / 2,
       radius: 18,
       speed: 0.004 * canvas.width,
@@ -92,20 +92,20 @@ const initPacManAnimation = () => {
       color: 'red'
     },
     {
-      x: 0.45 * canvas.width,
-      y: canvas.height / 2 + 0.15 * canvas.height,
+      x: 0.68 * canvas.width,
+      y: canvas.height / 2,
       radius: 18,
       speed: 0.0039 * canvas.width,
-      floatOffset: 0,
+      floatOffset: 3,
       floatDir: 1,
       color: 'cyan'
     },
     {
-      x: 0.5 * canvas.width,
-      y: canvas.height / 2 - 0.15 * canvas.height,
+      x: 0.81 * canvas.width,
+      y: canvas.height / 2,
       radius: 18,
       speed: 0.0043 * canvas.width,
-      floatOffset: 0,
+      floatOffset: -2,
       floatDir: 1,
       color: 'pink'
     }
@@ -123,18 +123,16 @@ const initPacManAnimation = () => {
 
   // ========== DRAWING FUNCTIONS ==========
   const drawPacMan = () => {
+    ctx.save();
+    ctx.translate(pac.x, pac.y);
+    ctx.scale(0.78, 1); // Narrow oval — thinner than a circle
     ctx.fillStyle = 'yellow';
     ctx.beginPath();
-    ctx.moveTo(pac.x, pac.y);
-    ctx.arc(
-      pac.x,
-      pac.y,
-      pac.radius,
-      pac.mouth * Math.PI,
-      (2 - pac.mouth) * Math.PI
-    );
-    ctx.lineTo(pac.x, pac.y);
+    ctx.moveTo(0, 0);
+    ctx.arc(0, 0, pac.radius, pac.mouth * Math.PI, (2 - pac.mouth) * Math.PI);
+    ctx.lineTo(0, 0);
     ctx.fill();
+    ctx.restore();
 
     // Animate mouth
     pac.mouth += 0.007 * mouthDirection;
@@ -144,22 +142,26 @@ const initPacManAnimation = () => {
   };
 
   const drawGhost = (ghost) => {
-    // Float animation
-    ghost.floatOffset += 0.5 * ghost.floatDir;
-    if (ghost.floatOffset > 8 || ghost.floatOffset < -8) {
+    // Float animation — gentle bob
+    ghost.floatOffset += 0.3 * ghost.floatDir;
+    if (ghost.floatOffset > 5 || ghost.floatOffset < -5) {
       ghost.floatDir *= -1;
     }
 
     const ghostY = ghost.y + ghost.floatOffset;
-    
-    // Ghost dimensions (proper proportions)
-    const bodyWidth = ghost.radius * 2;
-    const bodyHeight = ghost.radius * 2.2; // Slightly taller than wide
-    const waveCount = 3;
-    const waveWidth = bodyWidth / waveCount;
-    const waveHeight = ghost.radius * 0.35;
 
-    // Draw ghost body with proper rounded top
+    // Compress ghost horizontally so it's taller than wide (classic ghost shape)
+    ctx.save();
+    ctx.translate(ghost.x, ghostY);
+    ctx.scale(0.72, 1);
+    ctx.translate(-ghost.x, -ghostY);
+
+    const bodyWidth  = ghost.radius * 2;
+    const bodyHeight = ghost.radius * 2.5; // Tall > wide after scale: ~1.8× taller than visible width
+    const waveCount  = 3;
+    const waveWidth  = bodyWidth / waveCount;
+    const waveHeight = ghost.radius * 0.32;
+
     ctx.fillStyle = ghost.color;
     ctx.beginPath();
     
@@ -259,6 +261,8 @@ const initPacManAnimation = () => {
       Math.PI * 2
     );
     ctx.fill();
+
+    ctx.restore(); // End horizontal compression
   };
 
   const drawPowerCube = () => {
@@ -339,22 +343,22 @@ const initPacManAnimation = () => {
     powerCube.x = 0.2 * canvas.width;
     powerCube.y = canvas.height / 2;
 
-    // Reset ghosts
-    ghosts[0].x = 0.4 * canvas.width;
+    // Reset ghosts — horizontal line, evenly spaced
+    ghosts[0].x = 0.55 * canvas.width;
     ghosts[0].y = canvas.height / 2;
     ghosts[0].floatOffset = 0;
     ghosts[0].floatDir = 1;
     ghosts[0].color = 'red';
 
-    ghosts[1].x = 0.45 * canvas.width;
-    ghosts[1].y = canvas.height / 2 + 0.15 * canvas.height;
-    ghosts[1].floatOffset = 0;
+    ghosts[1].x = 0.68 * canvas.width;
+    ghosts[1].y = canvas.height / 2;
+    ghosts[1].floatOffset = 3;
     ghosts[1].floatDir = 1;
     ghosts[1].color = 'cyan';
 
-    ghosts[2].x = 0.5 * canvas.width;
-    ghosts[2].y = canvas.height / 2 - 0.15 * canvas.height;
-    ghosts[2].floatOffset = 0;
+    ghosts[2].x = 0.81 * canvas.width;
+    ghosts[2].y = canvas.height / 2;
+    ghosts[2].floatOffset = -2;
     ghosts[2].floatDir = 1;
     ghosts[2].color = 'pink';
 
@@ -370,11 +374,54 @@ const initPacManAnimation = () => {
 };
 
 // ==========================================
+// CUSTOM CURSOR — SPOTLIGHT + PRECISION DOT
+// ==========================================
+const initCustomCursor = () => {
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+
+  const dot  = document.createElement('div');
+  dot.className = 'cursor-dot cursor-hidden';
+
+  const spot = document.createElement('div');
+  spot.className = 'cursor-spot cursor-hidden';
+
+  document.body.appendChild(spot);
+  document.body.appendChild(dot);
+
+  const root = document.documentElement;
+
+  document.addEventListener('mousemove', (e) => {
+    dot.style.left = e.clientX + 'px';
+    dot.style.top  = e.clientY + 'px';
+    root.style.setProperty('--cx', e.clientX + 'px');
+    root.style.setProperty('--cy', e.clientY + 'px');
+    dot.classList.remove('cursor-hidden');
+    spot.classList.remove('cursor-hidden');
+  });
+
+  document.addEventListener('mouseleave', () => {
+    dot.classList.add('cursor-hidden');
+    spot.classList.add('cursor-hidden');
+  });
+  document.addEventListener('mouseenter', () => {
+    dot.classList.remove('cursor-hidden');
+    spot.classList.remove('cursor-hidden');
+  });
+
+  const interactors = 'a, button, .skill-card, .cv__request-btn';
+  document.querySelectorAll(interactors).forEach(el => {
+    el.addEventListener('mouseenter', () => dot.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => dot.classList.remove('cursor-hover'));
+  });
+};
+
+// ==========================================
 // INITIALIZE ALL FUNCTIONS
 // ==========================================
 const init = () => {
   initMobileMenu();
   initPacManAnimation();
+  initCustomCursor();
 };
 
 // Run on window load (ensures canvas is ready)

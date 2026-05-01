@@ -56,17 +56,19 @@
   100% { background-position: 0 0; }
 }
 
-.cv__container h2:hover {
-  transform: scale(1.075);
-  transition: transform var(--transition-fast);
-}
 
 .cv__intro {
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-light);
   margin-bottom: var(--space-md);
-  line-height: 1.5;
-  color: var(--color-text-primary);
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 127, 80, 0.12);
+  border-radius: 14px;
+  padding: 1.8rem 2.4rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .cv__intro span {
@@ -76,13 +78,6 @@
   font-style: italic;
   font-weight: var(--font-weight-bold);
   color: transparent;
-}
-
-.cv__intro:hover {
-  transform: translateY(-3px) scale(1.02);
-  color: var(--color-primary-light);
-  text-shadow: 0 0 3px rgba(255, 140, 0, 0.7);
-  transition: all var(--transition-fast);
 }
 
 /* Skill Grid */
@@ -96,30 +91,63 @@
 }
 
 .skill-card {
-  background: var(--color-bg-card);
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: var(--shadow-sm);
+  background: rgba(25, 25, 25, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 2rem 1.8rem 1.8rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 127, 80, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.32s ease, box-shadow 0.32s ease;
 }
 
-/* Hover effect now handled by GSAP for smoother animation */
+/* Accent bar slides in from left on hover */
+.skill-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.38s ease;
+}
+
+.skill-card:hover::after {
+  transform: scaleX(1);
+}
+
+.skill-card:hover {
+  border-color: rgba(255, 127, 80, 0.38);
+  box-shadow: 0 8px 32px rgba(255, 69, 0, 0.18), 0 0 0 1px rgba(255, 127, 80, 0.14);
+}
 
 .skill-card i {
   font-size: var(--font-size-xl);
-  color: var(--color-primary-dark);
-  margin-bottom: 0.8rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.9rem;
+  display: inline-block;
 }
 
 .skill-card h3 {
   font-size: var(--font-size-base);
   margin-bottom: 0.5rem;
   color: var(--color-text-primary);
+  font-weight: var(--font-weight-bold);
 }
 
 .skill-card p {
   font-size: 0.95rem;
   color: var(--color-text-secondary);
+  line-height: 1.55;
 }
 
 /* Ripple Ribbon */

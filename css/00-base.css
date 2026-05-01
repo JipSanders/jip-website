@@ -65,6 +65,76 @@
   --z-modal: 1000;
 }
 
+/* ============================================
+   CUSTOM CURSOR — SPOTLIGHT (desktop only)
+   Ambient coral spotlight tracks the mouse via
+   CSS custom properties. Precise dot snaps to
+   exact position. No rings, no glow chrome.
+   ============================================ */
+@media (pointer: fine) {
+  * { cursor: none !important; }
+
+  /* Full-viewport spotlight overlay */
+  .cursor-spot {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9;
+    background: radial-gradient(
+      circle 320px at var(--cx, -9999px) var(--cy, -9999px),
+      rgba(255, 127, 80, 0.08) 0%,
+      rgba(255, 100, 50, 0.03) 45%,
+      transparent 70%
+    );
+  }
+
+  /* Precision dot — snaps to cursor instantly */
+  .cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 5px;
+    background: coral;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 5px rgba(255, 127, 80, 0.6);
+    transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, opacity 0.12s ease;
+  }
+
+  /* Dot subtly enlarges on interactive hover */
+  .cursor-dot.cursor-hover {
+    width: 7px;
+    height: 7px;
+    background: #fff;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+  }
+
+  .cursor-hidden { opacity: 0 !important; }
+}
+
+/* ============================================
+   GRADIENT SHIMMER ANIMATION
+   ============================================ */
+@keyframes gradient-shimmer {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ============================================
+   REDUCED MOTION ACCESSIBILITY
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
 /* CSS Reset */
 * {
   box-sizing: border-box;

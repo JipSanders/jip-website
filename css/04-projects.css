@@ -38,12 +38,53 @@
   border-radius: var(--border-radius);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
+  padding-bottom: 20px;
   color: var(--color-text-primary);
   transition: transform var(--transition-fast);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Dark gradient overlay — fades in on hover */
+.projects__card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.92) 35%, rgba(0, 0, 0, 0.15) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+  border-radius: var(--border-radius);
+}
+
+.projects__card:hover::before {
+  opacity: 1;
+}
+
+/* Content hidden by default, slides up on hover */
+.projects__card h2,
+.projects__card p,
+.projects__card .projects__btn {
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.projects__card p         { transition-delay: 0.05s; }
+.projects__card .projects__btn { transition-delay: 0.1s; }
+
+.projects__card:hover h2,
+.projects__card:hover p,
+.projects__card:hover .projects__btn {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .projects__card:nth-child(1) {
